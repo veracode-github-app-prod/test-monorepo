@@ -27,7 +27,7 @@ jobs:
     compile_app_2:
         runs-on: ubuntu-latest
         steps:
-          - name: Build app 2 with Maven
+        - name: Build app 2 with Maven
           run: |
             cd app2 
             mvn clean package
@@ -50,6 +50,7 @@ jobs:
             mvn clean package
 
     zip_artefact:
+        runs-on: ubuntu-latest
         needs: [compile_app_1,compile_app_2,compile_app_3,compile_app_4]
         steps:
         - name: Zip artefacts
