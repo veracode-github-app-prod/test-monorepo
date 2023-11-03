@@ -1,7 +1,7 @@
 name: Compile my application
+runs-on: ubuntu-latest
 
 on:
-    runs-on: ubuntu-latest
     workflow_dispatch:
     repository_dispatch:
         types: [veracode-build]
