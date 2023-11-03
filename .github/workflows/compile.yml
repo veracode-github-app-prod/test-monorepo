@@ -1,38 +1,56 @@
 name: Compile my application
 
 on:
+    runs-on: ubuntu-latest
     workflow_dispatch:
     repository_dispatch:
         types: [veracode-build]
   
 jobs:
-    compile:
-        runs-on: ubuntu-latest
+    install_java:
         steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-java@v1
-          with:
-            java-version: 1.8
+            - uses: actions/checkout@v3
+            - uses: actions/setup-java@v1
+              with:
+                java-version: 1.8
+
+
+    compile_app_1:
+        steps:
         - name: Build app 1 with Maven
           run: |
             cd app1 
             mvn clean package
-        - name: Build app 2 with Maven
+
+    compile_app_2:
+        steps:
+          - name: Build app 2 with Maven
           run: |
             cd app2 
             mvn clean package
+
+
+    compile_app_3:
+        steps:
         - name: Build app 3 with Maven
           run: |
             cd app3 
             mvn clean package
+
+    compile_app_4:
+        steps:
         - name: Build app 4 with Maven
           run: |
             cd app4 
             mvn clean package
+
+    zip_artefact:
+        needs: [compile_app_1,compile_app_2,compile_app_3,compile_app_4]
+        steps:
         - name: Zip artefacts
           run: |
             pwd 
-            zip artefact.zip /app1/target/verademo.war /app2/target/verademo.war /app3/target/verademo.war /app4/target/verademo.war
+            zip artefact.zip app1/target/verademo.war app2/target/verademo.war app3/target/verademo.war app4/target/verademo.war
         - uses: actions/upload-artifact@v3
           with:
             name: veracode-artifact
