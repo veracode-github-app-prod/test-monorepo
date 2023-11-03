@@ -7,7 +7,7 @@ on:
         types: [veracode-build]
   
 jobs:
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
     install_java:
         steps:
             - uses: actions/checkout@v3
