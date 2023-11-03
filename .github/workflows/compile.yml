@@ -15,19 +15,19 @@ jobs:
             java-version: 1.8
         - name: Build app 1 with Maven
           run: |
-            cd /app1 
+            cd app1 
             mvn clean package
         - name: Build app 2 with Maven
           run: |
-            cd /app2 
+            cd app2 
             mvn clean package
         - name: Build app 3 with Maven
           run: |
-            cd /app3 
+            cd app3 
             mvn clean package
         - name: Build app 4 with Maven
           run: |
-            cd /app4 
+            cd app4 
             mvn clean package
         - name: Zip artefacts
           run: |
