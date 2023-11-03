@@ -7,8 +7,8 @@ on:
         types: [veracode-build]
   
 jobs:
-    #runs-on: ubuntu-latest
     install_java:
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-java@v1
@@ -17,6 +17,7 @@ jobs:
 
 
     compile_app_1:
+        runs-on: ubuntu-latest
         steps:
         - name: Build app 1 with Maven
           run: |
@@ -24,6 +25,7 @@ jobs:
             mvn clean package
 
     compile_app_2:
+        runs-on: ubuntu-latest
         steps:
           - name: Build app 2 with Maven
           run: |
@@ -32,6 +34,7 @@ jobs:
 
 
     compile_app_3:
+        runs-on: ubuntu-latest
         steps:
         - name: Build app 3 with Maven
           run: |
@@ -39,6 +42,7 @@ jobs:
             mvn clean package
 
     compile_app_4:
+        runs-on: ubuntu-latest
         steps:
         - name: Build app 4 with Maven
           run: |
