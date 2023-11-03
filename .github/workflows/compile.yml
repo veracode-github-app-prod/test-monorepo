@@ -1,5 +1,6 @@
 name: Compile my application
-runs-on: ubuntu-latest
+defaults:
+    runs-on: ubuntu-latest
 
 on:
     workflow_dispatch:
