@@ -15,16 +15,16 @@ jobs:
             java-version: 1.8
         - name: Build app 1 with Maven
           run: cd /app1 
-            mvn clean package
+               - mvn clean package
         - name: Build app 2 with Maven
           run: cd /app2 
-              mvn clean package
+               - mvn clean package
         - name: Build app 3 with Maven
           run: cd /app3 
-                mvn clean package
+               - mvn clean package
         - name: Build app 4 with Maven
           run: cd /app4 
-                  mvn clean package
+               - mvn clean package
         - name: Zip artefacts
           run: pwd 
             zip artefact.zip /app1/target/verademo.war /app2/target/verademo.war /app3/target/verademo.war /app4/target/verademo.war
