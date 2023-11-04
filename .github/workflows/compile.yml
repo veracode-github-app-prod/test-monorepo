@@ -2,7 +2,6 @@ name: Compile my application
     
 
 on:
-    workflow_dispatch:
     repository_dispatch:
         types: [veracode-build]
   
